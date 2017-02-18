@@ -9,7 +9,8 @@ import {LoginComponent} from './login/login.component';
 import {GoogleMapsComponent} from'./maps/googlemaps.component';
 
 import {AuthGuard} from './login/auth.guard';
-import {HomeComponent} from "./home/home.component";
+import {HomeComponent} from './home/home.component';
+import {RegistrationComponent} from './registration/registration.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent
@@ -23,6 +24,12 @@ const appRoutes: Routes = [
   {
     path:'maps',
     component:GoogleMapsComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'maps' }
+  },
+  {
+    path:'register',
+    component:RegistrationComponent,
     canActivate: [AuthGuard],
     data: { title: 'maps' }
   }
