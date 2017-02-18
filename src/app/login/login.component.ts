@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
   login(from: string) {
     this.af.auth.login({
 
-        provider: this._getProvider(from)
+        provider: this._getProvider(from),
+        method: this._getMethod(from)
 
 
     });
@@ -84,11 +85,19 @@ export class LoginComponent implements OnInit {
       case 'twitter': return AuthProviders.Twitter;
       case 'facebook': return AuthProviders.Facebook;
       case 'google': return AuthProviders.Google;
-
+      case 'steampunks': return AuthProviders.Password;
 
     }
   }
+  private _getMethod(from: string) {
+    switch(from){
+      case 'twitter': return AuthMethods.OAuthToken;
+      case 'facebook': return AuthMethods.OAuthToken;
+      case 'google': return AuthMethods.OAuthToken;
+      case 'steampunks': return AuthMethods.Password;
 
+    }
+  }
   ngOnInit() {
 
 

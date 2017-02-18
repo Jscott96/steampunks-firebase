@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'SteamPunks';
+  isAuth = false;
+  authColor = 'warn';
+  user = {};
 }
