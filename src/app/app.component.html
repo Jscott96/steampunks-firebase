@@ -3,12 +3,13 @@
     <img src="../images/[add logo here]" alt=" Steampunks logo" style="width: 80px; height: 90px" /> {{title}}
   </h1>
   <nav [ngSwitch]="isLoggedIn">
-    <a routerLink="/" routerLinkActive="active">Home</a>
-    <a *ngSwitchCase="true" routerLink="/login" routerLinkActive="active">Logout</a>
-    <a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a>
-    <a *ngSwitchCase="true" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-    <a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Maps</a>
-
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+      <li><a *ngSwitchCase="true" routerLink="/logout" routerLinkActive="active">Logout</a></li>
+      <li><a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a></li>
+      <li><a *ngSwitchCase="true" routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+      <li><a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Maps</a></li>
+    </ul>
   </nav>
 
 </header>

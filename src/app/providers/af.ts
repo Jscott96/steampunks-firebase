@@ -4,6 +4,7 @@
 import {Injectable} from "@angular/core";
 import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 import {FirebaseObjectFactoryOpts} from "angularfire2/interfaces";
+import{AppModule} from '../app.module';
 
 @Injectable()
 export class AF {
@@ -18,6 +19,7 @@ export class AF {
       (auth) => {
         if (auth != null) {
           this.user = this.af.database.object('users/' + auth.uid);
+
         }
       });
 
@@ -54,7 +56,9 @@ export class AF {
    * Logs out the current user
    */
   logout() {
+
     return this.af.auth.logout();
+
   }
 
   /**
@@ -127,4 +131,16 @@ export class AF {
       });
   }
 
+  private _getUserInfo(user: any): any {
+    if(!user) {
+      return {};
+    }
+    let data = user.auth.providerData[0];
+    return {
+      name: data.displayName,
+      avatar: data.photoURL,
+      email: data.email,
+      provider: data.providerId
+    };
+  }
 }

@@ -33,6 +33,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthGuard} from "./login/auth.guard";
 import { HomeComponent } from './home/home.component';
 import { RegistrationComponent } from './registration/registration.component';
+import {NgSwitch, NgSwitchCase} from '@angular/common';
 import{AF} from './providers/af';
 
 export let MD_MODULES: any = [
@@ -54,6 +55,7 @@ export let MD_MODULES: any = [
   imports: [
     BrowserModule,
     FormsModule,
+
     HttpModule,
     CoreModule,
     AppRouting,
@@ -79,6 +81,7 @@ export let MD_MODULES: any = [
     ),
     ...MD_MODULES
   ],
+
   providers: [AuthGuard, AF],
   bootstrap: [AppComponent]
 })
