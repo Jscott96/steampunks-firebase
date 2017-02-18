@@ -33,40 +33,45 @@ export class AppComponent {
         else
           {
               console.log("Successfully Logged in.");
-            this.isLoggedIn = true;
-            this.router.navigate(['']);
+
 
               // Set the Display Name and Email so we can attribute messages to them
-              if(auth.google) {
+              if(auth.google)
+              {
                 this.afService.displayName = auth.google.displayName;
                 this.afService.email = auth.google.email;
-                this.user = this._getUserInfo(auth.google);
+                // this.user = this._getUserInfo(auth.google);
               }
-              else {
-                if (auth.facebook) {
-                  this.afService.displayName = auth.facebook.displayName;
-                  this.afService.email = auth.facebook.email;
-                  this.user = this._getUserInfo(auth.facebook);
+              else if (auth.facebook) {
+                    this.afService.displayName = auth.facebook.displayName;
+                    this.afService.email = auth.facebook.email;
+                    //this.user = this._getUserInfo(auth.facebook);
+
                 }
-              else {
-                  if (auth.twitter) {
-                    this.afService.displayName = auth.twitter.displayName;
-                    this.afService.email = auth.twitter.email;
-                    this.user = this._getUserInfo(auth.twitter);
+              else if (auth.twitter) {
+                     this.afService.displayName = auth.twitter.displayName;
+                     this.afService.email = auth.twitter.email;
+                     // this.user = this._getUserInfo(auth.twitter);
+
                   }
-              else {
+              else
+                  {
                     this.afService.displayName = auth.auth.email;
                     this.afService.email = auth.auth.email;
-                    this.user = this._getUserInfo(auth.auth);
+                    //this.user = this._getUserInfo(auth.auth);
+
                   }
-                }
+
+              this.isLoggedIn = true;
+              this.router.navigate(['']);
+
 
 
           }
 
 
 
-        }
+
       }
     );
   }

@@ -17,12 +17,14 @@ import {AppRouting} from "../app.routing";
 })
 export class LoginComponent {
   public error: any;
+  user ={};
 
   constructor(public afService: AF, private router: Router) {}
   loginWithGoogle() {
     this.afService.loginWithGoogle().then((data) => {
       // Send them to the homepage if they are logged in
       console.log(data);
+      this.user = this._getUserInfo(data);
       this.afService.addUserInfo();
       this.router.navigate(['']);
     })
@@ -32,6 +34,7 @@ export class LoginComponent {
     this.afService.loginWithFacebook().then((data) => {
       // Send them to the homepage if they are logged in
       console.log(data);
+      this.user = this._getUserInfo(data);
       this.afService.addUserInfo();
       this.router.navigate(['']);
     })
@@ -40,6 +43,7 @@ export class LoginComponent {
     this.afService.loginWithTwitter().then((data) => {
       // Send them to the homepage if they are logged in
       console.log(data);
+      this.user = this._getUserInfo(data);
       this.afService.addUserInfo();
       this.router.navigate(['']);
     })
@@ -56,7 +60,22 @@ export class LoginComponent {
         }
       });
   }
+  logout() {
+    this.afService.logout();
 
 
+  }
+  private _getUserInfo(user: any): any {
+    if(!user) {
+      return {};
+    }
+    let data = user.auth.providerData[0];
+    return {
+      name: data.displayName,
+      avatar: data.photoURL,
+      email: data.email,
+      provider: data.providerId
+    };
+  }
 }
 
