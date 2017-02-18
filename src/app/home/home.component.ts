@@ -1,7 +1,7 @@
 import {Component, OnInit, AfterViewChecked, ElementRef, ViewChild} from '@angular/core';
-import {AF} from "../providers/af";
-import {FirebaseListObservable} from "angularfire2";
-
+import {AF} from '../providers/af';
+import {FirebaseListObservable} from 'angularfire2';
+ import {GoogleMapsComponent} from '../maps/googlemaps.component';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home.component.html',
