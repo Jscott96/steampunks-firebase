@@ -35,6 +35,7 @@ import { HomeComponent } from './home/home.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {NgSwitch, NgSwitchCase} from '@angular/common';
 import{AF} from './providers/af';
+import { StyledMapDirective } from './maps/styled-map.directive';
 
 export let MD_MODULES: any = [
   MdToolbarModule,
@@ -50,7 +51,8 @@ export let MD_MODULES: any = [
     LoginComponent,
     DashboardComponent,
     GoogleMapsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    StyledMapDirective
   ],
   imports: [
     BrowserModule,
