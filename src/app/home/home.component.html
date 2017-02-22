@@ -1,8 +1,7 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" >
-<div class="container md" >
-  <div class="row">
-    <div class="four columns">
-     <div class="col-md-8 col-md-offset-2">
+
+  <div class="ui-g">
+    <div class="ui-g-3">
+
         <div #scrollMe class="bs-example" id="messages">
           <div *ngFor="let message of messages | async">
             <div class="bubble" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)">
@@ -21,16 +20,15 @@
           <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
           <a class="send-message" (click)="sendMessage()">SEND</a>
         </figure>
-      </div>
+
     </div>
-    <div class="five columns content">
+    <div class="ui-g-6">
       <h1> Welcome to Steampunks {{afService.displayName}}</h1>
     </div>
-    <div class="three columns">
-      <div class ="col-md-4 col-md-offset">
+
+    <div class ="ui-g-3">
         <googlemaps-root></googlemaps-root>
 
-     </div>
     </div>
   </div>
-</div>
+

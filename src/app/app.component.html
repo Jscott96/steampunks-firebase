@@ -1,16 +1,23 @@
-<header class="bar">
-  <h1>
-    <img src="../images/logo.png" alt="Steampunks logo"  />
-  </h1>
-  <nav [ngSwitch]="isLoggedIn">
-    <ul>
-      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-      <li><a *ngSwitchCase="true" routerLink="/logout" routerLinkActive="active">Logout</a></li>
-      <li><a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a></li>
-      <li><a *ngSwitchCase="true" routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
-      <li><a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Maps</a></li>
-    </ul>
-  </nav>
+<header>
+ <div class="ui-g">
+   <div  class="ui-g-3">
+     <img src="./images/logo.png" alt="Steampunks logo"  width="600" >
+   </div>
+   <div class="ui-g-1"></div>
+   <div  class="ui-g-3">
+     <h1 style="font-family: deggrassi,fantasy; color: purple; font-size: 9rem">Punks</h1>
+   </div>
+
+ </div>
+   <nav [ngSwitch]="isLoggedIn" class="bar">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+        <li><a *ngSwitchCase="true" routerLink="/logout" routerLinkActive="active">Logout</a></li>
+        <li><a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a></li>
+        <li><a *ngSwitchCase="true" routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+        <li><a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Maps</a></li>
+      </ul>
+    </nav>
 
 </header>
 <div style="width: 100%;  align-content:center">
